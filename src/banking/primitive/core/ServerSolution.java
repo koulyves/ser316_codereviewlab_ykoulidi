@@ -16,6 +16,10 @@ class ServerSolution implements AccountServer {
 
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
+		load();
+		
+	}
+	private void load(){
 		File file = new File(fileName);
 		ObjectInputStream in = null;
 		try {
@@ -42,9 +46,8 @@ class ServerSolution implements AccountServer {
 					t.printStackTrace();
 				}
 			}
-		}
+		}		
 	}
-	
 	private boolean newAccountFactory(String type, String name, float balance)
 		throws IllegalArgumentException {
 		
