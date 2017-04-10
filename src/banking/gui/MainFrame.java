@@ -10,12 +10,7 @@ import java.awt.FlowLayout;
 import java.awt.Container;
 import java.awt.event.*;
 import javax.swing.*;
-/**
-Class: MainFrame
 
-Description: This class contains all the components of the application main window. Upon creation of the object
-the constructor calls the private method constructForm to build the window with all it's component.
-*/
 @SuppressWarnings("serial")
 class MainFrame extends JFrame {
 	AccountServer	myServer;
@@ -31,7 +26,7 @@ class MainFrame extends JFrame {
 	JButton			newAccountButton;
 	JButton			displayAccountsButton;
 	JButton			displayODAccountsButton;
-	
+
 	public MainFrame(String propertyFile) throws IOException {
 
 		//** initialize myServer
@@ -111,12 +106,7 @@ class MainFrame extends JFrame {
 		
 		setSize(400, 250);
 	}
-	/**
-	class: DisplayHandler
 
-	Description: This class implements ActionListener. The object handles all account display upon click on the displayAccountsButton. It only implements the 
-	actionPerformed method from ActionListner.
-	*/
 	class DisplayHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			List<Account> accounts = null;
@@ -137,12 +127,6 @@ class MainFrame extends JFrame {
 	}
 
 	// Complete a handler for new account button
-	/**
-	class: NewAccountHandler
-
-	Description: This class implements handles the creation of a new account. Upon click on the new account button the actionPerformed method is fired and a new
-	account is created by calling the static method newAccount from AccountServer
-	*/
 	class NewAccountHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String type = typeOptions.getSelectedItem().toString();
@@ -158,12 +142,6 @@ class MainFrame extends JFrame {
 	}
 	
 	// Complete a handler for new account button
-	/**
-	class: SaveAccountsHandler
-
-	Description: This class handles account saving. It implements ActionListner and execute the actionPerformed method the click event is fired from
-	save accounts button. The static method saveAccounts from AccountServer is called within the actionPerformed method.
-	*/
 	class SaveAccountsHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -176,12 +154,6 @@ class MainFrame extends JFrame {
 	}
 
 	// Complete a handler for deposit button
-	/**
-	class: DepositHandler
-
-	Description: This class handles deposits. The object implements ActionListener. actionPerformes is called when the deposit button is clicked. Within the
-	actionPerformed method, the existence of the current account is verified,  then the deposit method from the object Account is called to make the deposit. 
-	*/
 	class DepositHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String name = nameField.getText();
@@ -195,12 +167,6 @@ class MainFrame extends JFrame {
 		}
 	}
 	// Complete a handler for deposit button
-	/**
-	class: WithdrawHandler
-
-	Description: This class handles withdrawals. The object implements ActionListener. actionPerformed is called when the withdraw button is clicked. Within the
-	actionPerformed method, the existence of the current account is verified,  then the withdraw method from the object Account is called to withdraw money. 
-	*/
 	class WithdrawHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String name = nameField.getText();
@@ -216,11 +182,7 @@ class MainFrame extends JFrame {
 	
 	//** Complete a handler for the Frame that terminates 
 	//** (System.exit(1)) on windowClosing event
-	/**
-	class: FrameHandler
 
-	Description: This class extends the WindowAdapter object and implements the method windowClosing which exits the system once the window is closing. 
-	*/
 	static class FrameHandler extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 
